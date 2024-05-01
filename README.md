@@ -1,4 +1,5 @@
-# R2D2: Reliable and Repeatable Detector and Descriptor #
+# A Deep-Based Approach for Multi-Descriptor Feature Extraction:
+Applications on SAR Image Registration #
 This repository contains the implementation of the following [paper](https://europe.naverlabs.com/research/publications/r2d2-reliable-and-repeatable-detectors-and-descriptors-for-joint-sparse-local-keypoint-detection-and-feature-extraction/):
 
 ```text
@@ -11,11 +12,10 @@ This repository contains the implementation of the following [paper](https://eur
 }
 ```
 
-Fast-R2D2
+R2D2 for SAR images
 -----------------
 
-This repository also contains the code needed to train and extract Fast-R2D2 keypoints. 
-Fast-R2D2 is a revised version of R2D2 that is significantly faster, uses less memory yet achieves the same order of precision as the original network.
+This repository contains the code needed to train and extract Fast-R2D2 keypoints for SAR images. 
 
 
 License
