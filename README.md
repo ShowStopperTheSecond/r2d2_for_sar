@@ -1,8 +1,8 @@
 # A Deep-Based Approach for Multi-Descriptor Feature Extraction:
 Applications on SAR Image Registration #
-This repository contains the implementation of the following [paper](https://europe.naverlabs.com/research/publications/r2d2-reliable-and-repeatable-detectors-and-descriptors-for-joint-sparse-local-keypoint-detection-and-feature-extraction/):
+<!-- This repository contains the implementation of the following [paper](https://europe.naverlabs.com/research/publications/r2d2-reliable-and-repeatable-detectors-and-descriptors-for-joint-sparse-local-keypoint-detection-and-feature-extraction/): -->
 
-```text
+<!-- ```text
 @inproceedings{r2d2,
   author    = {Jerome Revaud and Philippe Weinzaepfel and C{\'{e}}sar Roberto de Souza and
                Martin Humenberger},
@@ -11,7 +11,7 @@ This repository contains the implementation of the following [paper](https://eur
   year      = {2019},
 }
 ```
-
+ -->
 R2D2 for SAR images
 -----------------
 
@@ -32,7 +32,7 @@ Typically, conda is one of the easiest way to get started:
 conda install python tqdm pillow numpy matplotlib scipy
 conda install pytorch torchvision cudatoolkit=10.1 -c pytorch
 ```
-
+<!-- 
 
 Pretrained models
 -----------------
@@ -54,7 +54,7 @@ Here is a table that summarizes the performance of each model:
 |`faster2d2_WASF_N8_big.pt`| 1.0M                    | 5K                    | 0.650              |
 <!--|`r2d2_WASF_N8_big.pt`| 1.0M                    | 5K                     | 0.704              |-->
 
-
+ -->
 Feature extraction
 ------------------
 To extract keypoints for a given image, simply execute:
@@ -103,51 +103,10 @@ python extract_kapture.py --model models/r2d2_WASF_N16.pt --kapture-root pathto/
 
 Run `python extract_kapture.py --help` for more information on the extraction parameters. 
 
-Evaluation on HPatches
-----------------------
-The evaluation is based on the [code](https://github.com/mihaidusmanu/d2-net) from [D2-Net](https://dsmn.ml/publications/d2-net.html).
-```bash
-git clone https://github.com/mihaidusmanu/d2-net.git
-cd d2-net/hpatches_sequences/
-bash download.sh
-bash download_cache.sh
-cd ../..
-ln -s d2-net/hpatches_sequences # finally create a soft-link
-```
-
-Once this is done, extract all the features:
-```bash
-python extract.py --model models/r2d2_WAF_N16.pt --images d2-net/image_list_hpatches_sequences.txt
-```
-
-Finally, evaluate using the iPython notebook `d2-net/hpatches_sequences/HPatches-Sequences-Matching-Benchmark.ipynb`. 
-You should normally get the following `MMA` plot:
-![image](https://user-images.githubusercontent.com/56719813/67966238-d3cc6500-fc03-11e9-969b-5f086da26e34.png). 
-
-
-**New**: we have uploaded in the `results/` folder some pre-computed plots that you can visualize using the aforementioned ipython notebook from `d2-net` (you need to place them in the `d2-net/hpatches_sequences/cache/` folder).
- - `r2d2_*_N16.size-256-1024.npy`: keypoints were extracted using a limited image resolution (i.e. with `python extract.py --min-size 256 --max-size 1024 ...`)
- - `r2d2_*_N16.scale-0.3-1.npy`: keypoints were extracted using a full image resolution (i.e. with `python extract.py --min-size 0 --max-size 9999 --min-scale 0.3 --max-scale 1.0`).
-
-Here is a summary of the results:
-
-|  result file | training set | resolution | MMA@3 on<br>HPatches| note |
-|--------------|:------------:|:----------:|:-------------------:|------|
-|[r2d2_W_N16.scale-0.3-1.npy](results/r2d2_W_N16.scale-0.3-1.npy) | `W` only | full | 0.699 | no annotation whatsoever |
-|[r2d2_WAF_N16.size-256-1024.npy](results/r2d2_WAF_N16.size-256-1024.npy) | `W`+`A`+`F` | 1024 px | 0.686 | as in NeurIPS paper |
-|[r2d2_WAF_N16.scale-0.3-1.npy](results/r2d2_WAF_N16.scale-0.3-1.npy) | `W`+`A`+`F` | full | 0.718 | +3.2% just from resolution |
-|[r2d2_WASF_N16.size-256-1024.npy](results/r2d2_WASF_N16.size-256-1024.npy) | `W`+`A`+`S`+`F` | 1024 px | 0.721 | with style transfer |
-|[r2d2_WASF_N16.scale-0.3-1.npy](results/r2d2_WASF_N16.scale-0.3-1.npy) | `W`+`A`+`S`+`F` | full | 0.758 | +3.7% just from resolution |
-
-Evaluation on visuallocalization.net
-----------------------
-In our paper, we report visual localization results on the Aachen Day-Night dataset (nighttime images) available at visuallocalization.net. We used the provided local feature evaluation pipeline provided here: https://github.com/tsattler/visuallocalizationbenchmark/tree/master/local_feature_evaluation
-In the meantime, the ground truth poses as well as the error thresholds of the Aachen nighttime images (which are used for the local feature evaluation) have been improved and changed on the website, thus, the original results reported in the paper cannot be reproduced.
-
 Training the model
 ------------------
 We provide all the code and data to retrain the model as described in the paper.
-
+<!-- 
 ### Downloading training data ###
 The first step is to download the training data. 
 First, create a folder that will host all data in a place where you have sufficient disk space (15 GB required).
@@ -176,7 +135,7 @@ Note that you can visualize the content of each dataset using the following comm
 python -m tools.dataloader "PairLoader(aachen_flow_pairs)"
 ```
 ![image](https://user-images.githubusercontent.com/56719813/68311498-eafecd00-00b1-11ea-8d37-6693f3f90c9f.png)
-
+ -->
 
 ### Training details ###
 To train the model, simply run this command:
