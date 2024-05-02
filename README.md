@@ -1,21 +1,12 @@
-# A Deep-Based Approach for Multi-Descriptor Feature Extraction:
-Applications on SAR Image Registration #
-<!-- This repository contains the implementation of the following [paper](https://europe.naverlabs.com/research/publications/r2d2-reliable-and-repeatable-detectors-and-descriptors-for-joint-sparse-local-keypoint-detection-and-feature-extraction/): -->
+# A Deep-Based Approach for Multi-Descriptor Feature Extraction: Applications on SAR Image Registration #
 
-<!-- ```text
-@inproceedings{r2d2,
-  author    = {Jerome Revaud and Philippe Weinzaepfel and C{\'{e}}sar Roberto de Souza and
-               Martin Humenberger},
-  title     = {{R2D2:} Repeatable and Reliable Detector and Descriptor},
-  booktitle = {NeurIPS},
-  year      = {2019},
-}
-```
- -->
+
+
 R2D2 for SAR images
 -----------------
+This repository contains the code needed to train and extract [Fast-R2D2](https://github.com/naver/r2d2) keypoints for SAR images. The data used for training are SAR images from [this](https://www.kaggle.com/datasets/javidtheimmortal/sar-patches) dataset:
 
-This repository contains the code needed to train and extract Fast-R2D2 keypoints for SAR images. 
+![title](misc/sar_samples.png)
 
 
 License
@@ -75,7 +66,7 @@ By default, they corespond to what is used in the paper, i.e., a scale factor eq
 
 *Note2*: You can significantly improve the `MMA@3` score (by ~4 pts) if you can afford more computations. To do so, you just need to increase the upper-limit on the scale range by replacing `--min-size 256 --max-size 1024` with `--min-size 0 --max-size 9999 --min-scale 0.3 --max-scale 1.0`.
 
-Feature extraction with kapture datasets
+<!-- Feature extraction with kapture datasets
 ------------------
 Kapture is a pivot file format, based on text and binary files, used to describe SFM (Structure From Motion) and more generally sensor-acquired data.
 
@@ -102,10 +93,11 @@ python extract_kapture.py --model models/r2d2_WASF_N16.pt --kapture-root pathto/
 ```
 
 Run `python extract_kapture.py --help` for more information on the extraction parameters. 
-
+ -->
 Training the model
 ------------------
 We provide all the code and data to retrain the model as described in the paper.
+Check out the training notebook in kaggle [here](https://www.kaggle.com/code/javidtheimmortal/r2d2-for-sar)
 <!-- 
 ### Downloading training data ###
 The first step is to download the training data. 
@@ -135,7 +127,7 @@ Note that you can visualize the content of each dataset using the following comm
 python -m tools.dataloader "PairLoader(aachen_flow_pairs)"
 ```
 ![image](https://user-images.githubusercontent.com/56719813/68311498-eafecd00-00b1-11ea-8d37-6693f3f90c9f.png)
- -->
+ --><!-- 
 
 ### Training details ###
 To train the model, simply run this command:
@@ -151,3 +143,4 @@ python train.py --save-path /path/to/fast-model.pt --net 'Fast_Quad_L2Net_ConfCF
 ```
 
 Note that you can fully configure the training (i.e. select the data sources, change the batch size, learning rate, number of epochs etc.). One easy way to improve the model is to train for more epochs, e.g. `--epochs 50`. For more details about all parameters, run `python train.py --help`.
+ -->
