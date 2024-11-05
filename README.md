@@ -14,6 +14,8 @@ Code needed to train and extract [Fast-R2D2](https://github.com/naver/r2d2) keyp
 
 Refer to the notebooks for methodology and training of the network.
 
+Check point for SAR is "SAR_R2D2_NewLoss_saved_model_3200.pt" located at models folder.
+
 Please cite with the following BibTeX:
 
 ```
