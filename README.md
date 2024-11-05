@@ -5,6 +5,8 @@
 R2D2 for SAR images
 -----------------
 This repository contains the reference code for the paper: A Deep-Based Approach for Multi-Descriptor Feature Extraction: Applications on SAR Image Registration
+
+
 Code needed to train and extract [Fast-R2D2](https://github.com/naver/r2d2) keypoints for SAR images. The data used for training are SAR images from [this](https://www.kaggle.com/datasets/javidtheimmortal/sar-patches) dataset:
 
 ![title](misc/sar_samples.png)
