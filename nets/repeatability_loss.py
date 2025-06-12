@@ -188,7 +188,7 @@ class SharpenPeak(nn.Module):
         locsMaxima1 = self.nms(sali1).float()
         locsMaxima2 = self.nms(sali2).float()
 
-        return  torch.mean((locsMaxima1 - sali1)**2 + (locsMaxima2-sali1)**2 )
+        return  torch.mean((locsMaxima1 - sali1)**2 + (locsMaxima2-sali2)**2 )
 
 
 class PeakyLoss (nn.Module):
